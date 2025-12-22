@@ -21,47 +21,48 @@
 ; === END OF INSTRUCTIONS ===
 ; ===========================
 
-CapsLock & 1::switchDesktopByNumber(1)
-CapsLock & 2::switchDesktopByNumber(2)
-CapsLock & 3::switchDesktopByNumber(3)
-CapsLock & 4::switchDesktopByNumber(4)
-CapsLock & 5::switchDesktopByNumber(5)
-CapsLock & 6::switchDesktopByNumber(6)
-CapsLock & 7::switchDesktopByNumber(7)
-CapsLock & 8::switchDesktopByNumber(8)
-CapsLock & 9::switchDesktopByNumber(9)
+LAlt & 1::SwitchDesktopOrMoveWindow(1)
+LAlt & 2::SwitchDesktopOrMoveWindow(2)
+LAlt & 3::SwitchDesktopOrMoveWindow(3)
+LAlt & 4::SwitchDesktopOrMoveWindow(4)
+LAlt & 5::SwitchDesktopOrMoveWindow(5)
+LAlt & 6::SwitchDesktopOrMoveWindow(6)
+LAlt & 7::SwitchDesktopOrMoveWindow(7)
+LAlt & 8::SwitchDesktopOrMoveWindow(8)
+LAlt & 9::SwitchDesktopOrMoveWindow(9)
 
-CapsLock & Numpad1::switchDesktopByNumber(1)
-CapsLock & Numpad2::switchDesktopByNumber(2)
-CapsLock & Numpad3::switchDesktopByNumber(3)
-CapsLock & Numpad4::switchDesktopByNumber(4)
-CapsLock & Numpad5::switchDesktopByNumber(5)
-CapsLock & Numpad6::switchDesktopByNumber(6)
-CapsLock & Numpad7::switchDesktopByNumber(7)
-CapsLock & Numpad8::switchDesktopByNumber(8)
-CapsLock & Numpad9::switchDesktopByNumber(9)
+LAlt & Numpad1::SwitchDesktopOrMoveWindow(1)
+LAlt & Numpad2::SwitchDesktopOrMoveWindow(2)
+LAlt & Numpad3::SwitchDesktopOrMoveWindow(3)
+LAlt & Numpad4::SwitchDesktopOrMoveWindow(4)
+LAlt & Numpad5::SwitchDesktopOrMoveWindow(5)
+LAlt & Numpad6::SwitchDesktopOrMoveWindow(6)
+LAlt & Numpad7::SwitchDesktopOrMoveWindow(7)
+LAlt & Numpad8::SwitchDesktopOrMoveWindow(8)
+LAlt & Numpad9::SwitchDesktopOrMoveWindow(9)
 
-CapsLock & n::switchDesktopToRight()
-CapsLock & p::switchDesktopToLeft()
-CapsLock & s::switchDesktopToRight()
-CapsLock & a::switchDesktopToLeft()
-CapsLock & tab::switchDesktopToLastOpened()
+; Secondary shortcuts disabled to leave only Alt+number desktop switching active.
+; LAlt & n::switchDesktopToRight()
+; LAlt & p::switchDesktopToLeft()
+; LAlt & s::switchDesktopToRight()
+; LAlt & a::switchDesktopToLeft()
+; LAlt & tab::switchDesktopToLastOpened()
 
-CapsLock & c::createVirtualDesktop()
-CapsLock & d::deleteVirtualDesktop()
+; LAlt & c::createVirtualDesktop()
+; LAlt & d::deleteVirtualDesktop()
 
-CapsLock & q::MoveCurrentWindowToDesktop(1)
-CapsLock & w::MoveCurrentWindowToDesktop(2)
-CapsLock & e::MoveCurrentWindowToDesktop(3)
-CapsLock & r::MoveCurrentWindowToDesktop(4)
-CapsLock & t::MoveCurrentWindowToDesktop(5)
-CapsLock & y::MoveCurrentWindowToDesktop(6)
-CapsLock & u::MoveCurrentWindowToDesktop(7)
-CapsLock & i::MoveCurrentWindowToDesktop(8)
-CapsLock & o::MoveCurrentWindowToDesktop(9)
+; LAlt & q::MoveCurrentWindowToDesktop(1)
+; LAlt & w::MoveCurrentWindowToDesktop(2)
+; LAlt & e::MoveCurrentWindowToDesktop(3)
+; LAlt & r::MoveCurrentWindowToDesktop(4)
+; LAlt & t::MoveCurrentWindowToDesktop(5)
+; LAlt & y::MoveCurrentWindowToDesktop(6)
+; LAlt & u::MoveCurrentWindowToDesktop(7)
+; LAlt & i::MoveCurrentWindowToDesktop(8)
+; LAlt & o::MoveCurrentWindowToDesktop(9)
 
-CapsLock & Right::MoveCurrentWindowToRightDesktop()
-CapsLock & Left::MoveCurrentWindowToLeftDesktop()
+; LAlt & Right::MoveCurrentWindowToRightDesktop()
+; LAlt & Left::MoveCurrentWindowToLeftDesktop()
 
 ; === INSTRUCTIONS ===
 ; Below is the alternate key configuration. Delete symbol ; in the beginning of the line to enable.
@@ -128,3 +129,41 @@ CapsLock & Left::MoveCurrentWindowToLeftDesktop()
 
 ; ^#+Right::MoveCurrentWindowToRightDesktop()
 ; ^#+Left::MoveCurrentWindowToLeftDesktop()
+
+SwitchDesktopOrMoveWindow(targetDesktop) {
+    if (GetKeyState("Shift", "P")) {
+        MoveCurrentWindowToDesktop(targetDesktop)
+    } else {
+        switchDesktopByNumber(targetDesktop)
+    }
+}
+
+; Ctrl + Left Click = Right Click
+^LButton::Click Right
+
+; Alt + Left Click + Drag = Scroll
+LAlt & LButton::
+    CoordMode, Mouse, Screen
+    MouseGetPos, mX_Start, mY_Start
+    Loop
+    {
+        if !GetKeyState("LButton", "P")
+            break
+            
+        MouseGetPos, mX_Now, mY_Now
+        mY_Delta := mY_Now - mY_Start
+        
+        if (mY_Delta > 10)
+        {
+            Click, WheelUp
+            mY_Start := mY_Now
+        }
+        else if (mY_Delta < -10)
+        {
+            Click, WheelDown
+            mY_Start := mY_Now
+        }
+        
+        Sleep, 10
+    }
+return
