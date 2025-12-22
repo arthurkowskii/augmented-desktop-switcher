@@ -1,9 +1,9 @@
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U6U82G0A5)
-
 # windows-desktop-switcher (Augmented Fork)
 
 > [!NOTE]
-> This is a personal fork of [windows-desktop-switcher](https://github.com/pmb6tz/windows-desktop-switcher) tailored for enhanced productivity with custom gesture controls and modified hotkeys.
+> This is a personal fork of [windows-desktop-switcher](https://github.com/pmb6tz/windows-desktop-switcher). You can support the original creator [here](https://ko-fi.com/U6U82G0A5).
+> 
+> This fork is tailored for enhanced productivity with custom gesture controls and modified hotkeys.
 
 ## New Features
 - **Move Window**: `Alt` + `Shift` + `1-9` moves the active window to the specified desktop.
@@ -34,7 +34,7 @@ Additional hotkeys, such as [pinning a window or app on all workspaces](https://
 You can also customize the hotkeys and actions as described in the section below.
 
 ## Overview
-This script creates more convenient hotkeys for switching virtual desktops in Windows 10. I built this to better mirror the mapping I use on linux (with dwm), and it's always annoyed me that Windows does not have better hotkey support for this feature (for instance, there's no way to go directly to a desktop by number).
+This script creates more convenient hotkeys for switching virtual desktops in Windows 10/11. It mirrors Linux-style window management (e.g. keybindings found in window managers like dwm), providing direct desktop switching by number and other productivity features missing from the default Windows experience.
 
 ## Running
 [Install AutoHotkey v1.1](https://autohotkey.com/download/1.1/AutoHotkey_1.1.37.02_setup.exe) (v2 is [not supported](https://github.com/pmb6tz/windows-desktop-switcher/issues/93) at this time), then run the `desktop_switcher.ahk` script (open with AutoHotkey if prompted). You can disable the switching animation by opening "Adjust the appearance and performance of Windows" and then unselecting the checkmark "Animate windows when minimizing and maximizing".
