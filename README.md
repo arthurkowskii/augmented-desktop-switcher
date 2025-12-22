@@ -1,6 +1,15 @@
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U6U82G0A5)
 
-# windows-desktop-switcher
+# windows-desktop-switcher (Augmented Fork)
+
+> [!NOTE]
+> This is a personal fork of [windows-desktop-switcher](https://github.com/pmb6tz/windows-desktop-switcher) tailored for enhanced productivity with custom gesture controls and modified hotkeys.
+
+## New Features
+- **Move Window**: `Alt` + `Shift` + `1-9` moves the active window to the specified desktop.
+- **Right Click**: `Ctrl` + `Left Click` triggers a right-click event.
+- **Scroll**: `Alt` + `Left Click` + `Drag` scrolls the page (Inverted: Drag Down = Scroll Up).
+
 An AutoHotkey script for Windows that lets a user switch virtual desktops by pressing <kbd>CapsLock</kbd> and a number row key at the sime time (e.g. <kbd>CapsLock</kbd> + <kbd>2</kbd> to switch to Desktop 2). It also provides other features, such as customizing the key combinations, creation/deletion of desktops by hotkey, etc. (see Hotkeys section below).
 
 ## Hotkeys
