@@ -139,31 +139,31 @@ SwitchDesktopOrMoveWindow(targetDesktop) {
 }
 
 ; Ctrl + Left Click = Right Click
-^LButton::Click Right
+; ^LButton::Click Right
 
-; Alt + Left Click + Drag = Scroll
-LAlt & LButton::
-    CoordMode, Mouse, Screen
-    MouseGetPos, mX_Start, mY_Start
-    Loop
-    {
-        if !GetKeyState("LButton", "P")
-            break
-            
-        MouseGetPos, mX_Now, mY_Now
-        mY_Delta := mY_Now - mY_Start
-        
-        if (mY_Delta > 10)
-        {
-            Click, WheelUp
-            mY_Start := mY_Now
-        }
-        else if (mY_Delta < -10)
-        {
-            Click, WheelDown
-            mY_Start := mY_Now
-        }
-        
-        Sleep, 10
-    }
-return
+; Alt + Shift + Left Click + Drag = Scroll
+; !+LButton::
+;     CoordMode, Mouse, Screen
+;     MouseGetPos, mX_Start, mY_Start
+;     Loop
+;     {
+;         if !GetKeyState("LButton", "P")
+;             break
+;             
+;         MouseGetPos, mX_Now, mY_Now
+;         mY_Delta := mY_Now - mY_Start
+;         
+;         if (mY_Delta > 10)
+;         {
+;             Click, WheelUp
+;             mY_Start := mY_Now
+;         }
+;         else if (mY_Delta < -10)
+;         {
+;             Click, WheelDown
+;             mY_Start := mY_Now
+;         }
+;         
+;         Sleep, 10
+;     }
+; return

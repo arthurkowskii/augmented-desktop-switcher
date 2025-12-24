@@ -7,8 +7,6 @@
 
 ## New Features
 - **Move Window**: `Alt` + `Shift` + `1-9` moves the active window to the specified desktop.
-- **Right Click**: `Ctrl` + `Left Click` triggers a right-click event.
-- **Scroll**: `Alt` + `Left Click` + `Drag` scrolls the page (Inverted: Drag Down = Scroll Up).
 
 An AutoHotkey script for Windows that lets a user switch virtual desktops by pressing <kbd>CapsLock</kbd> and a number row key at the sime time (e.g. <kbd>CapsLock</kbd> + <kbd>2</kbd> to switch to Desktop 2). It also provides other features, such as customizing the key combinations, creation/deletion of desktops by hotkey, etc. (see Hotkeys section below).
 
@@ -18,8 +16,6 @@ An AutoHotkey script for Windows that lets a user switch virtual desktops by pre
 | :--- | :--- |
 | **Switch** to Desktop 1-9 | `Alt` + `1`...`9` (or Numpad) |
 | **Move Window** to Desktop 1-9 | `Alt` + `Shift` + `1`...`9` |
-| **Right Click** | `Ctrl` + `Left Click` |
-| **Scroll** | `Alt` + `Shift` + `Left Click` + `Drag` <br> *(Drag Down = Scroll Up, Drag Up = Scroll Down)* |
 
 ## Configuration
 
