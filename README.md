@@ -19,7 +19,7 @@ An AutoHotkey script for Windows that lets a user switch virtual desktops by pre
 | **Switch** to Desktop 1-9 | `Alt` + `1`...`9` (or Numpad) |
 | **Move Window** to Desktop 1-9 | `Alt` + `Shift` + `1`...`9` |
 | **Right Click** | `Ctrl` + `Left Click` |
-| **Scroll** | `Alt` + `Left Click` + `Drag` <br> *(Drag Down = Scroll Up, Drag Up = Scroll Down)* |
+| **Scroll** | `Alt` + `Shift` + `Left Click` + `Drag` <br> *(Drag Down = Scroll Up, Drag Up = Scroll Down)* |
 
 ## Configuration
 
