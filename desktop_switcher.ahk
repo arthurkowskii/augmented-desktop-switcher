@@ -237,3 +237,49 @@ deleteVirtualDesktop()
     CurrentDesktop--
     OutputDebug, [delete] desktops: %DesktopCount% current: %CurrentDesktop%
 }
+
+;
+; Resize the active window by a fixed delta while keeping its top-left corner in place.
+; Maximized windows are ignored because Windows owns their size.
+;
+resizeCurrentWindow(deltaWidth, deltaHeight)
+{
+    WinGet, activeHwnd, ID, A
+    if (!activeHwnd) {
+        return
+    }
+
+    WinGet, windowState, MinMax, ahk_id %activeHwnd%
+    if (windowState = 1) {
+        OutputDebug, [resize] ignoring maximized window: %activeHwnd%
+        return
+    }
+
+    WinGetPos, x, y, width, height, ahk_id %activeHwnd%
+    if (ErrorLevel) {
+        OutputDebug, [resize] unable to read window bounds: %activeHwnd%
+        return
+    }
+
+    newWidth := width + deltaWidth
+    newHeight := height + deltaHeight
+
+    if (newWidth < 1) {
+        newWidth := 1
+    }
+    if (newHeight < 1) {
+        newHeight := 1
+    }
+
+    WinMove, ahk_id %activeHwnd%,, x, y, newWidth, newHeight
+}
+
+resizeCurrentWindowWidth(deltaWidth)
+{
+    resizeCurrentWindow(deltaWidth, 0)
+}
+
+resizeCurrentWindowHeight(deltaHeight)
+{
+    resizeCurrentWindow(0, deltaHeight)
+}

@@ -41,7 +41,13 @@ LAlt & Numpad7::SwitchDesktopOrMoveWindow(7)
 LAlt & Numpad8::SwitchDesktopOrMoveWindow(8)
 LAlt & Numpad9::SwitchDesktopOrMoveWindow(9)
 
-; Secondary shortcuts disabled to leave only Alt+number desktop switching active.
+; Resize the active window in 48 px steps. Maximized windows are ignored.
+LAlt & u::resizeCurrentWindowWidth(-48)
+LAlt & i::resizeCurrentWindowHeight(-48)
+LAlt & o::resizeCurrentWindowHeight(48)
+LAlt & p::resizeCurrentWindowWidth(48)
+
+; Secondary desktop-switching shortcuts remain disabled. Resize shortcuts are active above.
 ; LAlt & n::switchDesktopToRight()
 ; LAlt & p::switchDesktopToLeft()
 ; LAlt & s::switchDesktopToRight()
