@@ -41,11 +41,11 @@ LAlt & Numpad7::SwitchDesktopOrMoveWindow(7)
 LAlt & Numpad8::SwitchDesktopOrMoveWindow(8)
 LAlt & Numpad9::SwitchDesktopOrMoveWindow(9)
 
-; Resize the active window in 48 px steps. Maximized windows are ignored.
-LAlt & u::resizeCurrentWindowWidth(-48)
-LAlt & i::resizeCurrentWindowHeight(-48)
-LAlt & o::resizeCurrentWindowHeight(48)
-LAlt & p::resizeCurrentWindowWidth(48)
+; Resize the active window in 96 px steps. Maximized windows are ignored.
+LAlt & u::resizeCurrentWindowWidth(-96)
+LAlt & i::resizeCurrentWindowHeight(-96)
+LAlt & o::resizeCurrentWindowHeight(96)
+LAlt & p::resizeCurrentWindowWidth(96)
 
 ; Secondary desktop-switching shortcuts remain disabled. Resize shortcuts are active above.
 ; LAlt & n::switchDesktopToRight()

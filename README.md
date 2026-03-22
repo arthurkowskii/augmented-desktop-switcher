@@ -7,7 +7,7 @@
 
 ## New Features
 - **Move Window**: `Alt` + `Shift` + `1-9` moves the active window to the specified desktop.
-- **Resize Window**: `Alt` + `P/O/I/U` changes the active window width or height in 48 px steps.
+- **Resize Window**: `Alt` + `P/O/I/U` changes the active window width or height in 96 px steps.
 
 An AutoHotkey script for Windows that lets a user switch virtual desktops by pressing <kbd>CapsLock</kbd> and a number row key at the sime time (e.g. <kbd>CapsLock</kbd> + <kbd>2</kbd> to switch to Desktop 2). It also provides other features, such as customizing the key combinations, creation/deletion of desktops by hotkey, etc. (see Hotkeys section below).
 
@@ -29,7 +29,7 @@ To change the key mappings, modify the `user_config.ahk` script and then run `de
 ### Current Configuration
 The default configuration in this fork uses `LAlt` as the primary modifier.
 
-The resize shortcuts intentionally ignore maximized windows. Normal windows are resized in 48 px steps while keeping the top-left corner fixed.
+The resize shortcuts intentionally ignore maximized windows. Normal windows are resized in 96 px steps while keeping the top-left corner fixed.
 
 ```autohotkey
 ; Switch to Desktop 1
