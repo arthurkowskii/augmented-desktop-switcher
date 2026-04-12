@@ -47,6 +47,12 @@ LAlt & i::resizeCurrentWindowHeight(-96)
 LAlt & o::resizeCurrentWindowHeight(96)
 LAlt & p::resizeCurrentWindowWidth(96)
 
+; Move the active window in 96 px steps. Maximized windows are ignored.
+!+Left::moveCurrentWindowX(-96)
+!+Right::moveCurrentWindowX(96)
+!+Up::moveCurrentWindowY(-96)
+!+Down::moveCurrentWindowY(96)
+
 ; Secondary desktop-switching shortcuts remain disabled. Resize shortcuts are active above.
 ; LAlt & n::switchDesktopToRight()
 ; LAlt & p::switchDesktopToLeft()

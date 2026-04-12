@@ -283,3 +283,42 @@ resizeCurrentWindowHeight(deltaHeight)
 {
     resizeCurrentWindow(0, deltaHeight)
 }
+
+;
+; Move the active window by a fixed delta.
+; Maximized windows are ignored.
+;
+moveCurrentWindow(deltaX, deltaY)
+{
+    WinGet, activeHwnd, ID, A
+    if (!activeHwnd) {
+        return
+    }
+
+    WinGet, windowState, MinMax, ahk_id %activeHwnd%
+    if (windowState = 1) {
+        OutputDebug, [move] ignoring maximized window: %activeHwnd%
+        return
+    }
+
+    WinGetPos, x, y, width, height, ahk_id %activeHwnd%
+    if (ErrorLevel) {
+        OutputDebug, [move] unable to read window bounds: %activeHwnd%
+        return
+    }
+
+    newX := x + deltaX
+    newY := y + deltaY
+
+    WinMove, ahk_id %activeHwnd%,, newX, newY, width, height
+}
+
+moveCurrentWindowX(deltaX)
+{
+    moveCurrentWindow(deltaX, 0)
+}
+
+moveCurrentWindowY(deltaY)
+{
+    moveCurrentWindow(0, deltaY)
+}
